@@ -1,16 +1,30 @@
 ---
-
+import { Image } from 'astro:assets';
+import GameContainer from '../components/GameContainer';
+import Scene from '../components/Scene';
+import backgroundImage from '../assets/backgrounds/kitchen.jpeg';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Point and Click Game</title>
+  </head>
+  <body>
+    <GameContainer client:load>
+      <Scene client:load>
+        <Image 
+          src={backgroundImage} 
+          alt="Scene Background" 
+          class="w-full h-full object-cover absolute top-0 left-0 z-0"
+        />
+        <div class="relative z-10">
+          {/* Add interactive items here later */}
+        </div>
+      </Scene>
+    </GameContainer>
+  </body>
 </html>
