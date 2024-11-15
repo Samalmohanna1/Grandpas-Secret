@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets'
+import GameContainer from '../components/GameContainer'
+import Scene from '../components/Scene'
+
+import backgroundImage from '../assets/backgrounds/kitchen.jpeg'
+import gift from '../assets/collectables/gift.png'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import DialogueBox from '../components/DialogueBox'
+
+const dialogueText = `Happy Birthday Timmy! A package arrived for you, it's on the kitchen table.`
+---
+
+<BaseLayout title=''>
+	<GameContainer client:load>
+		<Scene client:load>
+			<Image
+				src={backgroundImage}
+				alt='Kitchen Background'
+				width={1920}
+				height={1080}
+				class='w-full h-full object-cover absolute top-0 left-0 z-0'
+			/>
+
+			<a href='/kitchen-table'>
+				<Image
+					src={gift}
+					alt='A birthday gift.'
+					width={400}
+					height={400}
+					class='absolute top-1/2 left-2/3 z-10'
+				/>
+			</a>
+
+			<DialogueBox
+				text={dialogueText}
+				speaker='Mom'
+				onComplete={() => console.log('Dialogue complete')}
+				client:load
+			/>
+		</Scene>
+	</GameContainer>
+</BaseLayout>

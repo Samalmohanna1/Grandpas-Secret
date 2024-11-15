@@ -1,0 +1,27 @@
+@import url('./reset.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-display: swap;
+	font-family: 'Kode';
+	font-weight: 400 700;
+	src: url(/font/KodeMono-VariableFont_wght.ttf);
+}
+
+body {
+	color: black;
+	background-color: wheat;
+	transition:
+		color 0.5s,
+		background-color 0.5s;
+	line-height: 1.5;
+	font-family: Kode, monospace;
+	font-size: 18px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-wrap: balance;
+}
